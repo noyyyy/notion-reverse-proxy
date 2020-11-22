@@ -11,9 +11,9 @@
 host信息
 
 ```
-47.57.140.54 notion.so
-47.57.140.54 www.notion.so
-47.57.140.54 msgstore.www.notion.so
+119.28.13.121 notion.so
+119.28.13.121 www.notion.so
+119.28.13.121 msgstore.www.notion.so
 ```
 
 ### Windows 修改 Host
