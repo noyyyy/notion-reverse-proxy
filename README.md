@@ -4,19 +4,13 @@
 
 用CN2线路的服务器对Notion进行反向代理, 以加速Notion在中国大陆的访问速度.
 
-原文地址: <https://www.notion.so/jerrywang959/Notion-b39fd3de402e4841a7c2bd64625d1369>
+具体内容不再再github上更新，请点击下面的原文链接查看详情
+原文地址: <https://jerryw.cn/notion-faster>
 
 # 使用方法
 
 ## 改hosts
 
-host信息
-
-```
-119.28.13.121 notion.so
-119.28.13.121 www.notion.so
-119.28.13.121 msgstore.www.notion.so
-```
 
 ### Windows 修改 Host
 
