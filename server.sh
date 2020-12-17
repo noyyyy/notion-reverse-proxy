@@ -2,8 +2,8 @@ number=`netstat -nat|grep -i "14:443" | grep ESTABLISHED | awk '{print $5}' | cu
 
 
 now=`date +%s`
-curl https://status.jerryw.cn/api/v1/metrics/1/points  \
-  -H 'X-Cachet-Token: 321321'   \
+curl https://npstatus.jerryw.cn/api/v1/metrics/1/points  \
+  -H 'X-Cachet-Token: 123123'   \
   --header 'Content-Type: application/json' \
   --request POST \
   -d '{"value": '"$number"',"timestamp":'"$now"'}'

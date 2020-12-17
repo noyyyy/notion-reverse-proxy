@@ -10,17 +10,23 @@
 check(){
        status_code=$(curl -s -o /dev/null -w %{http_code} --resolve www.notion.so:443:$1 https://www.notion.so )
        if [ $status_code -ne 200 ];then
-              status=4
+              sleep 5
+              status_code=$(curl -s -o /dev/null -w %{http_code} --resolve www.notion.so:443:$1 https://www.notion.so )
+              if [ $status_code -ne 200 ];then
+                     status=4
+              else 
+                     status=1
+              fi
        else
               status=1
        fi
 now=`date +%s`
 echo $status
-url=https://status.jerryw.cn/api/v1/components/$2
+url=https://npstatus.jerryw.cn/api/v1/components/$2
 echo $url
-curl  --url  https://status.jerryw.cn/api/v1/components/$2 \
+curl  --url  https://npstatus.jerryw.cn/api/v1/components/$2 \
   --request PUT \
-  -H 'X-Cachet-Token: 321321'  \
+  -H 'X-Cachet-Token: 123123'  \
   -H 'Content-Type: application/json'  \
   -d '{"status": '"$status"'}'
 }
