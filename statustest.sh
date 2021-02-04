@@ -25,16 +25,16 @@ url=https://npstatus.jerryw.cn/api/v1/components/$2
 echo $url
 curl  --url  https://npstatus.jerryw.cn/api/v1/components/$2 \
   --request PUT \
-  -H 'X-Cachet-Token: 123123'  \
+  -H 'X-Cachet-Token: BKrtpbWvVt3WjWBFZFMC'  \
   -H 'Content-Type: application/json'  \
   -d '{"status": '"$status"'}'
 }
 
 s3check(){
-       status_code=$(curl -s -o /dev/null -w %{http_code} --resolve s3-us-west-2.amazonaws.com:443:$1 https://www.notion.so )
+       status_code=$(curl -s -o /dev/null -w %{http_code} --resolve s3-us-west-2.amazonaws.com:443:$1 https://s3-us-west-2.amazonaws.com )
        if [ $status_code -ne 200 ];then
               sleep 5
-              status_code=$(curl -s -o /dev/null -w %{http_code} --resolve s3.us-west-2.amazonaws.com:443:$1 https://www.notion.so )
+              status_code=$(curl -s -o /dev/null -w %{http_code} --resolve s3.us-west-2.amazonaws.com:443:$1 https://s3.us-west-2.amazonaws.com )
               if [ $status_code -ne 200 ];then
                      status=4
               else 
@@ -49,21 +49,13 @@ url=https://npstatus.jerryw.cn/api/v1/components/$2
 echo $url
 curl  --url  https://npstatus.jerryw.cn/api/v1/components/$2 \
   --request PUT \
-  -H 'X-Cachet-Token: 123123'  \
+  -H 'X-Cachet-Token: BKrtpbWvVt3WjWBFZFMC'  \
   -H 'Content-Type: application/json'  \
   -d '{"status": '"$status"'}'
 }
 
 check 119.28.13.121 1
-check 143.92.45.222 2
-s3check 143.92.45.222 3
-s3check 47.242.62.34  4
-
-
-
-
-
-
-   
-
-
+#check 160.116.52.26 2
+#check 150.109.62.103 5 
+#s3check 160.116.52.26 3
+#s3check  155.94.144.151 6
