@@ -19,23 +19,25 @@ check(){
        else
               status=1
        fi
-now=`date +%s`
-echo $status
-url=https://npstatus.jerryw.cn/api/v1/components/$2
-echo $url
+#now=`date +%s`
+#echo $status
+#url=https://npstatus.jerryw.cn/api/v1/components/$2
+#echo $url
 curl  --url  https://npstatus.jerryw.cn/api/v1/components/$2 \
   --request PUT \
-  -H 'X-Cachet-Token: BKrtpbWvVt3WjWBFZFMC'  \
+  -H "X-Cachet-Token: $Token"  \
   -H 'Content-Type: application/json'  \
   -d '{"status": '"$status"'}'
 }
 
 s3check(){
-       status_code=$(curl -s -o /dev/null -w %{http_code} --resolve s3-us-west-2.amazonaws.com:443:$1 https://s3-us-west-2.amazonaws.com )
-       if [ $status_code -ne 200 ];then
+       status_code=$(curl -s -o /dev/null -w %{http_code} --resolve s3.us-west-2.amazonaws.com:443:$1 \
+        https://s3.us-west-2.amazonaws.com )
+       if [ $status_code -ne 307 ];then
               sleep 5
-              status_code=$(curl -s -o /dev/null -w %{http_code} --resolve s3.us-west-2.amazonaws.com:443:$1 https://s3.us-west-2.amazonaws.com )
-              if [ $status_code -ne 200 ];then
+              status_code=$(curl -s -o /dev/null -w %{http_code} --resolve s3.us-west-2.amazonaws.com:443:$1 \
+              https://s3.us-west-2.amazonaws.com )
+              if [ $status_code -ne 307 ];then
                      status=4
               else 
                      status=1
@@ -43,19 +45,51 @@ s3check(){
        else
               status=1
        fi
-now=`date +%s`
-echo $status
-url=https://npstatus.jerryw.cn/api/v1/components/$2
-echo $url
+#now=`date +%s`
+#echo $status
+#url=https://npstatus.jerryw.cn/api/v1/components/$2
+#echo $url
 curl  --url  https://npstatus.jerryw.cn/api/v1/components/$2 \
   --request PUT \
-  -H 'X-Cachet-Token: BKrtpbWvVt3WjWBFZFMC'  \
+  -H "X-Cachet-Token: $Token"  \
   -H 'Content-Type: application/json'  \
   -d '{"status": '"$status"'}'
 }
 
+
+dotcheck(){
+       msg=$(getdns_query @45.133.119.184~$1 -m -s -L -A www.baidu.com | grep www.baidu.com | wc -l)
+       if [ $msg -ne 0 ];then
+              status=1
+       else 
+              status=4
+       fi
+       curl  --url  https://npstatus.jerryw.cn/api/v1/components/$2 \
+       --request PUT \
+       -H "X-Cachet-Token: $Token"  \
+       -H 'Content-Type: application/json'  \
+       -d '{"status": '"$status"'}'
+}
+
+dohcheck()
+{
+       status_code=$(curl -H 'accept: application/dns-message' \
+       "$1?dns=UyQBAAABAAAAAAAAA3d3dwViYWlkdQNjb20AAAEAAQ" \
+         -w %{http_code} -s -o /dev/null)
+       if [ $status_code -ne 200 ];then
+              status=4
+       else 
+              status=1
+       fi
+       curl  --url  https://npstatus.jerryw.cn/api/v1/components/$2 \
+       --request PUT \
+       -H "X-Cachet-Token: $Token"  \
+       -H 'Content-Type: application/json'  \
+       -d '{"status": '"$status"'}'
+}
+
+Token=
 check 119.28.13.121 1
-#check 160.116.52.26 2
-#check 150.109.62.103 5 
-#s3check 160.116.52.26 3
-#s3check  155.94.144.151 6
+s3check 119.28.13.121 7
+dotcheck dns.jerryw.cn 8
+dohcheck https://dns.jerryw.cn:8443/dns-query 9
