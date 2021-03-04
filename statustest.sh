@@ -58,7 +58,7 @@ dotcheck(){
        while [ $count -le 4 ];
        do 
        msg=$(getdns_query @45.133.119.184~$1 -m -s -L -A www.baidu.com | grep answer_type | wc -l)
-       if [ $msg -ge 0 ];then
+       if [ $msg -gt 0 ];then
               status=1
               break
        else
