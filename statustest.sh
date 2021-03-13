@@ -57,7 +57,7 @@ dotcheck(){
        count=0
        while [ $count -le 4 ];
        do 
-       msg=$(getdns_query @45.133.119.184~$1 -m -s -L -A www.baidu.com | grep answer_type | wc -l)
+       msg=$(getdns_query @49.234.153.60~$1 -m -s -L -A www.baidu.com | grep answer_type | wc -l)
        if [ $msg -gt 0 ];then
               status=1
               break
@@ -97,7 +97,7 @@ dohcheck()
        -d '{"status": '"$status"'}'
 }
 
-Token=
+Token=wII1cZGE7OHjT0GzovUw
 check 119.28.13.121 1
 check 194.56.79.104 10
 s3check 119.28.13.121 7
