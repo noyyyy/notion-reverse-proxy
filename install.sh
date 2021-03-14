@@ -1,7 +1,7 @@
 #for ubuntu:20:04/Debian:10
 
 apt update
-apt install -y build-essential libtool zlib1g-dev openssl libpcre3 libpcre3-dev libssl-dev libgeoip-dev ufw
+apt install -y build-essential libtool zlib1g-dev openssl libpcre3 libpcre3-dev libssl-dev libgeoip-dev #ufw
 
 wget https://nginx.org/download/nginx-1.19.4.tar.gz  -O nginx-1.19.4.tar.gz 
 tar -zvxf nginx-1.19.4.tar.gz 
@@ -24,11 +24,11 @@ wget https://raw.githubusercontent.com/Jerrywang959/notion-reverse-proxy/main/ng
 service nginx start
 systemctl enable nginx.service
 
-ufw allow 22/tcp
-ufw allow 80/tcp
-ufw allow 443/tcp
-ufw enable
+# ufw allow 22/tcp
+# ufw allow 80/tcp
+# ufw allow 443/tcp
+# ufw enable -y
 
-echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
-echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
-sysctl -p
+# echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+# echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+# sysctl -p
