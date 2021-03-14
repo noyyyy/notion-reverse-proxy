@@ -24,6 +24,11 @@ wget https://raw.githubusercontent.com/Jerrywang959/notion-reverse-proxy/main/ng
 service nginx start
 systemctl enable nginx.service
 
+ufw allow 22/tcp
+ufw allow 80/tcp
+ufw allow 443/tcp
+ufw enable
+
 echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 sysctl -p

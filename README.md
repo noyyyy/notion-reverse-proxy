@@ -35,10 +35,11 @@ notepad hosts
 
 # 如何部署服务端
 
-For ubuntu 20.04, debian 10
+纯净 ubuntu 20.04, debian 10. 以 root 权限运行
 
 ```shell
-wget https://raw.githubusercontent.com/Jerrywang959/notion-reverse-proxy/main/install.sh | bash
+apt install curl
+bash <(curl -Lso- https://raw.githubusercontent.com/Jerrywang959/notion-reverse-proxy/main/install.sh)
 ```
 
 # 捐赠
