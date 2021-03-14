@@ -33,6 +33,13 @@ notepad hosts
 
 - 下载 ihost，可以方便帮你配置 Host
 
+# 如何部署服务端
+
+For ubuntu 20.04, debian 10
+
+```shell
+wget https://raw.githubusercontent.com/Jerrywang959/notion-reverse-proxy/main/install.sh | bash
+```
 
 # 捐赠
 
