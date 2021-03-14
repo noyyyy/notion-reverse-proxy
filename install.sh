@@ -8,7 +8,7 @@ tar -zvxf nginx-1.19.4.tar.gz
 rm nginx-1.19.4.tar.gz
 cd nginx-1.19.4
 
-./configure --prefix=/usr --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx/nginx.pid --lock-path=/var/lock/nginx.lock --with-http_ssl_module --with-stream_ssl_preread_module  --with-stream 
+./configure --prefix=/usr --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx/nginx.pid --lock-path=/var/lock/nginx.lock --with-http_ssl_module --with-stream_ssl_preread_module  --with-stream --with-stream_geoip_module
 make && make install
 mkdir /usr/logs
 
@@ -18,7 +18,7 @@ wget https://raw.githubusercontent.com/Jerrywang959/notion-reverse-proxy/main/ng
 wget https://raw.githubusercontent.com/Jerrywang959/notion-reverse-proxy/main/geocn.conf \ 
 -O /etc/nginx/geocn.conf
 
-wget https://raw.githubusercontent.com/Jerrywang959/notion-reverse-proxy/main/nginx.conf 、
+wget https://raw.githubusercontent.com/Jerrywang959/notion-reverse-proxy/main/nginx.conf \
 -O  /etc/nginx/nginx.conf  
 
 service nginx start
