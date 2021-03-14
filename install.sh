@@ -12,10 +12,10 @@ cd nginx-1.19.4
 make && make install
 mkdir /usr/logs
 
-wget https://raw.githubusercontent.com/Jerrywang959/notion-reverse-proxy/main/nginx.service 、
+wget https://raw.githubusercontent.com/Jerrywang959/notion-reverse-proxy/main/nginx.service \
 -O  /usr/lib/systemd/system/nginx.service
 
-wget https://raw.githubusercontent.com/Jerrywang959/notion-reverse-proxy/main/geocn.conf \ 
+wget https://raw.githubusercontent.com/Jerrywang959/notion-reverse-proxy/main/geocn.conf \
 -O /etc/nginx/geocn.conf
 
 wget https://raw.githubusercontent.com/Jerrywang959/notion-reverse-proxy/main/nginx.conf \
