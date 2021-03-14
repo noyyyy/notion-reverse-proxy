@@ -3,7 +3,7 @@
 apt update
 apt install -y build-essential libtool zlib1g-dev openssl libpcre3 libpcre3-dev libssl-dev libgeoip-dev
 
-wget https://nginx.org/download/nginx-1.19.4.tar.gz 
+wget https://nginx.org/download/nginx-1.19.4.tar.gz  -O nginx-1.19.4.tar.gz 
 tar -zvxf nginx-1.19.4.tar.gz 
 rm nginx-1.19.4.tar.gz
 cd nginx-1.19.4
