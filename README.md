@@ -42,6 +42,12 @@ apt install curl
 bash <(curl -Lso- https://raw.githubusercontent.com/Jerrywang959/notion-reverse-proxy/main/install.sh)
 ```
 
+更新配置
+```shell
+bash <(curl -Lso- https://raw.githubusercontent.com/Jerrywang959/notion-reverse-proxy/main/update.sh)
+```
+
+
 # 捐赠
 
 本人学生党, 如果你觉得此项目有帮助, 请捐赠, 收入仅仅用于维持服务器成本, 维护人员不会受到任何收入.
