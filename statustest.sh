@@ -97,9 +97,11 @@ dohcheck()
        -d '{"status": '"$status"'}'
 }
 
-Token=wII1cZGE7OHjT0GzovUw
+Token=
 check 119.28.13.121 1
 check 194.56.79.104 10
+check 45.133.119.184 12
+check 156.255.213.41 13
 s3check 119.28.13.121 7
 s3check 194.56.79.104 11
 dotcheck dns.jerryw.cn 8
