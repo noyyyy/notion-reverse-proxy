@@ -4,9 +4,7 @@
 
 用CN2线路的服务器对Notion进行反向代理, 以加速Notion在中国大陆的访问速度.
 
-具体内容不再再github上更新，请点击下面的原文链接查看详情
-
-原文地址: <https://jerryw.cn/notion-faster>
+阅读更多: <https://notionfaster.org>
 
 # 使用方法
 
@@ -47,6 +45,13 @@ bash <(curl -Lso- https://raw.githubusercontent.com/Jerrywang959/notion-reverse-
 bash <(curl -Lso- https://raw.githubusercontent.com/Jerrywang959/notion-reverse-proxy/main/update.sh)
 ```
 
+## 测试是否反代成功
+
+使用 curl, curl 的 --resolve 参数可以强指 IP
+
+```bash
+curl https://www.notion.so --resolve www.notion.so:443:119.28.13.121
+```
 
 # 捐赠
 
