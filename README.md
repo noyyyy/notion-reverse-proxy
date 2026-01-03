@@ -42,7 +42,7 @@ bash <(curl -Lso- https://raw.githubusercontent.com/Jerrywang959/notion-reverse-
 
 更新配置
 ```shell
-bash <(curl -Lso- https://raw.githubusercontent.com/Jerrywang959/notion-reverse-proxy/main/update.sh)
+bash <(curl -Lso- https://raw.githubusercontent.com/noyyyy/notion-reverse-proxy/dev/update.sh)
 ```
 
 ## 测试是否反代成功
