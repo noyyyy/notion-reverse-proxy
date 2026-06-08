@@ -58,11 +58,13 @@ notepad hosts
 
 # 如何部署服务端
 
-纯净 ubuntu 20.04, debian 10. 以 root 权限运行
+纯净 Debian 13（也兼容较旧的 Ubuntu 20.04 / Debian 10+）。以 root 权限运行
+
+> 说明：已在 Debian 13 Docker 中验证通过；测试环境会临时生成自签名证书，正式部署时请按自己的域名与证书流程替换。
 
 ```shell
 apt install curl
-bash <(curl -Lso- https://raw.githubusercontent.com/Jerrywang959/notion-reverse-proxy/main/install.sh)
+bash <(curl -Lso- https://raw.githubusercontent.com/noyyyy/notion-reverse-proxy/dev/install.sh)
 ```
 
 更新配置
